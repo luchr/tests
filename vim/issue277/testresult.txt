@@ -80,10 +80,10 @@ vcol(Ind= 4)=virtcol([<line>, 5])= 0; expected= 0 ✓
 ─────┼────┼──────────┼────┼──────────────────
   04 │ 61 │ U+000061 │ 03 │ a
 ─────┴────┴──────────┴────┴──────────────────
-vcol(Ind= 0)=virtcol([<line>, 1])= 2; expected= 1 ⁇
-vcol(Ind= 1)=virtcol([<line>, 2])= 3; expected= 1 ⁇
-vcol(Ind= 2)=virtcol([<line>, 3])= 3; expected= 1 ⁇
-vcol(Ind= 3)=virtcol([<line>, 4])= 3; expected= 1 ⁇
+vcol(Ind= 0)=virtcol([<line>, 1])= 2; expected= 2 ✓
+vcol(Ind= 1)=virtcol([<line>, 2])= 3; expected= 2 ⁇
+vcol(Ind= 2)=virtcol([<line>, 3])= 3; expected= 2 ⁇
+vcol(Ind= 3)=virtcol([<line>, 4])= 3; expected= 2 ⁇
 vcol(Ind= 4)=virtcol([<line>, 5])= 3; expected= 3 ✓
 vcol(Ind= 5)=virtcol([<line>, 6])= 4; expected= 4 ✓
 vcol(Ind= 6)=virtcol([<line>, 7])= 0; expected= 0 ✓
@@ -102,10 +102,10 @@ a😀
   04 │ 80 │          │    │ 
 ─────┴────┴──────────┴────┴──────────────────
 vcol(Ind= 0)=virtcol([<line>, 1])= 1; expected= 1 ✓
-vcol(Ind= 1)=virtcol([<line>, 2])= 3; expected= 2 ⁇
-vcol(Ind= 2)=virtcol([<line>, 3])= 4; expected= 2 ⁇
-vcol(Ind= 3)=virtcol([<line>, 4])= 4; expected= 2 ⁇
-vcol(Ind= 4)=virtcol([<line>, 5])= 4; expected= 2 ⁇
+vcol(Ind= 1)=virtcol([<line>, 2])= 3; expected= 3 ✓
+vcol(Ind= 2)=virtcol([<line>, 3])= 4; expected= 3 ⁇
+vcol(Ind= 3)=virtcol([<line>, 4])= 4; expected= 3 ⁇
+vcol(Ind= 4)=virtcol([<line>, 5])= 4; expected= 3 ⁇
 vcol(Ind= 5)=virtcol([<line>, 6])= 4; expected= 4 ✓
 vcol(Ind= 6)=virtcol([<line>, 7])= 0; expected= 0 ✓
 ════════════════════════════════════════════════════
@@ -131,10 +131,10 @@ vcol(Ind= 1)=virtcol([<line>, 2])= 2; expected= 1 ⁇
 vcol(Ind= 2)=virtcol([<line>, 3])= 2; expected= 1 ⁇
 vcol(Ind= 3)=virtcol([<line>, 4])= 2; expected= 1 ⁇
 vcol(Ind= 4)=virtcol([<line>, 5])= 2; expected= 1 ⁇
-vcol(Ind= 5)=virtcol([<line>, 6])= 3; expected= 2 ⁇
-vcol(Ind= 6)=virtcol([<line>, 7])= 4; expected= 2 ⁇
-vcol(Ind= 7)=virtcol([<line>, 8])= 4; expected= 2 ⁇
-vcol(Ind= 8)=virtcol([<line>, 9])= 4; expected= 2 ⁇
+vcol(Ind= 5)=virtcol([<line>, 6])= 3; expected= 3 ✓
+vcol(Ind= 6)=virtcol([<line>, 7])= 4; expected= 3 ⁇
+vcol(Ind= 7)=virtcol([<line>, 8])= 4; expected= 3 ⁇
+vcol(Ind= 8)=virtcol([<line>, 9])= 4; expected= 3 ⁇
 vcol(Ind= 9)=virtcol([<line>,10])= 4; expected= 4 ✓
 vcol(Ind=10)=virtcol([<line>,11])= 0; expected= 0 ✓
 ════════════════════════════════════════════════════
@@ -155,10 +155,10 @@ vcol(Ind=10)=virtcol([<line>,11])= 0; expected= 0 ✓
   07 │ cc │ U+000332 │    │ 
   08 │ b2 │          │    │ 
 ─────┴────┴──────────┴────┴──────────────────
-vcol(Ind= 0)=virtcol([<line>, 1])= 2; expected= 1 ⁇
-vcol(Ind= 1)=virtcol([<line>, 2])= 3; expected= 1 ⁇
-vcol(Ind= 2)=virtcol([<line>, 3])= 3; expected= 1 ⁇
-vcol(Ind= 3)=virtcol([<line>, 4])= 3; expected= 1 ⁇
+vcol(Ind= 0)=virtcol([<line>, 1])= 2; expected= 2 ✓
+vcol(Ind= 1)=virtcol([<line>, 2])= 3; expected= 2 ⁇
+vcol(Ind= 2)=virtcol([<line>, 3])= 3; expected= 2 ⁇
+vcol(Ind= 3)=virtcol([<line>, 4])= 3; expected= 2 ⁇
 vcol(Ind= 4)=virtcol([<line>, 5])= 3; expected= 3 ✓
 vcol(Ind= 5)=virtcol([<line>, 6])= 4; expected= 3 ⁇
 vcol(Ind= 6)=virtcol([<line>, 7])= 4; expected= 3 ⁇
