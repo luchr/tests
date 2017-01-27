@@ -81,7 +81,7 @@ fu! Issue277Test()
     \  { 'line' : "😀â̲", 'tests': [ [0,2], [1,2], [2,2], [3,2], [4,3], [5,3],
     \                               [6,3], [7,3], [8,3], [9,4], [10,0]       ] }
     \ ]
-  1,$d
+  1,$d | call append(line('$'), "Vim-Version ".v:version.", ".strftime('%c'))
   for test_line in test_list
     call append(line('$'), sep) | call append(line('$'), test_line["line"])
     normal G1|
