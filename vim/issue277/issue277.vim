@@ -1,13 +1,18 @@
 scripte utf8
 
 " This is a test-script for the virtcol-function, i.e.
-" the charset.c/getvcol-procedure. 
+" the charset.c/getvcol-procedure.
 "
 " For different 'test-lines' (a.k.a. test cases)
 " the vim-function virtcol() is called for different
-" byte-positions in order to get the visual/virtual 
-" column/result of the virtcol-function. These 
+" byte-positions in order to get the visual/virtual
+" column/result of the virtcol-function. These
 " results are then compared to given expected values.
+"
+" All tests are done for 
+"     setvirtualedit=all 
+" and
+"     setvirtualedit=
 "
 " In order to see the details, of a line, before the
 " tests (for each test-line) a overview table is generated.
@@ -16,7 +21,7 @@ scripte utf8
 " After this overview table, the tests are done and
 " the results appended after the overview table.
 "
-" To start the test 
+" To start the test
 " :so issue277.vim
 " in an (empty) modifiable buffer or call
 "
@@ -25,7 +30,7 @@ scripte utf8
 
 fu! ByteCodePointsTableForLine()
   " This is a helper function to return a multiline-string with a
-  " table showing the bytes, codepoints columns and 
+  " table showing the bytes, codepoints columns and
   " visual columns of the current line of the current buffer.
   let byte_no=0 | let vc_no=1 |  let result=''
 
@@ -35,7 +40,7 @@ fu! ByteCodePointsTableForLine()
   let last_col = strlen(getline('.'))
   normal |
 
-  while getpos('.')[2]<=last_col
+  while 1
     normal ""vy
     let line_v_start = 1
     let result .= "─────┼────┼──────────┼────┼──────────────────\n"
@@ -56,7 +61,10 @@ fu! ByteCodePointsTableForLine()
       endwhile
       let charpos += 1
     endwhile
+    let lastpos=getpos('.')
     let vc_no += strdisplaywidth(@") | normal l
+    let currpos=getpos('.')
+    if lastpos==currpos || currpos[2]>=last_col | break | endif
   endwhile
   let result .= "─────┴────┴──────────┴────┴──────────────────\n"
   return result
@@ -64,7 +72,6 @@ endfu
 
 fu! Issue277Test()
   " This is the function doing the tests.
-  set ve=all
   let sep="════════════════════════════════════════════════════"
   " Here are the test cases
   let test_list = [
@@ -81,7 +88,8 @@ fu! Issue277Test()
     \  { 'line' : "😀â̲", 'tests': [ [0,2], [1,2], [2,2], [3,2], [4,3], [5,3],
     \                               [6,3], [7,3], [8,3], [9,4], [10,0]       ] }
     \ ]
-  1,$d | call append(line('$'), "Vim-Version ".v:version.", ".strftime('%c'))
+  call append(line('$'), "Vim-Version ".v:version.", ".strftime('%c'))
+  call append(line('$'), "set virtualedit=".&ve)
   for test_line in test_list
     call append(line('$'), sep) | call append(line('$'), test_line["line"])
     normal G1|
@@ -99,4 +107,9 @@ fu! Issue277Test()
   normal 1G
 endfu
 
+1,$d
+set ve=all
 call Issue277Test()
+set ve=
+call Issue277Test()
+
